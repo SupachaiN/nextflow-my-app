@@ -1,12 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import HelloText from './HelloText';
 
 export default function App() {
+
+  let user = 'Supachai'
+
+  const onSignIn = () => console.log('Hello')
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={styles.text}>your app!</Text>
+      <HelloText username={user} />
+      <HelloText/>
+      <Button title='Sign In' onPress={onSignIn} />
       <StatusBar style="auto" />
     </View>
+  );
+}
+
+function LoginForm() {
+  return(
+    <Text>Login</Text>
   );
 }
 
@@ -17,4 +32,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    fontWeight: 'bold',
+    fontSize: 80,
+    color: 'white',
+    backgroundColor: 'red',
+    padding: 10,
+  }
 });
